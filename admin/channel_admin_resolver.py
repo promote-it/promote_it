@@ -3,7 +3,8 @@
 import logging
 
 from telegram import Bot
-from promote_it_config import config
+
+from config.promote_it_config import config
 
 
 logger = logging.getLogger("c_a_r")
@@ -15,7 +16,7 @@ class ChannelAdminResolver(object):
 
 
     def initialize(self):
-        self.bot = Bot(config.promote_it_share_bot_token)
+        self.bot = Bot(config.get("admin_resolver").get("bot_token"))
         print(self.bot.get_me())
 
 

@@ -53,4 +53,6 @@ __pycache__/
 
 
 #config
-promote_it_config.py
+config/dev.yml
+config/qa.yml
+config/prod.yml

@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 
 import json
+
+import sys
 from klein import Klein
-from channel_admin_resolver import ChannelAdminResolver
+
+from channel.channel_name_resolver import ChannelNameResolver
+from config.promote_it_config import config
 
 
 app = Klein()
-resolver = ChannelAdminResolver()
+resolver = ChannelNameResolver()
 
 
 @app.route('/resolve/<channel_name>', methods=['GET'])
@@ -24,6 +28,21 @@ def update(request, channel_name):
     return channel_name
 
 
+def usage():
+    print("./script env")
+    sys.exit(-1)
+
+
 if __name__ == "__main__":
+    if (len(sys.argv) < 2):
+        usage()
+
+    env = sys.argv[1]
+    config.initialize("config/" + env + ".yml")
+
     resolver.initialize()
-    app.run('localhost', 9001)
+
+    host = config.get("name_resolver").get("host")
+    port = int(config.get("name_resolver").get("port"))
+
+    app.run(host, port)
