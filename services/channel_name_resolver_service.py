@@ -38,7 +38,7 @@ if __name__ == "__main__":
         usage()
 
     env = sys.argv[1]
-    config.initialize("config/" + env + ".yml")
+    config.initialize("config/promote_it.yml", "config/" + env + ".yml")
 
     resolver.initialize()
 
