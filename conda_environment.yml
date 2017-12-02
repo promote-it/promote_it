@@ -9,6 +9,7 @@ dependencies:
 - ca-certificates=2017.08.26=h1d4fec5_0
 - certifi=2017.11.5=py35h9749603_0
 - cffi=1.10.0=py35h796c292_1
+- chardet=3.0.4=py35hb6e9ddf_1
 - constantly=15.1.0=py35_0
 - coverage=4.4.2=py35h8fc71f1_0
 - cryptography=2.0.3=py35hef72dfd_1
@@ -28,16 +29,21 @@ dependencies:
 - pycparser=2.18=py35h61b3040_1
 - pympler=0.5=py35hc09b5c8_0
 - pyopenssl=17.2.0=py35h1d2a76c_0
+- pysocks=1.6.7=py35h6aefbb0_1
 - python=3.5.4=h417fded_24
+- pyyaml=3.12=py35h46ef4ae_1
 - readline=7.0=ha6073c6_4
+- requests=2.18.4=py35hb9e6ad1_1
 - service_identity=17.0.0=py35_0
 - setuptools=36.5.0=py35ha8c1747_0
 - six=1.11.0=py35h423b573_1
 - sqlite=3.20.1=hb898158_2
 - tk=8.6.7=hc745277_3
 - twisted=17.9.0=py35h812867c_0
+- urllib3=1.22=py35h2ab6e29_0
 - wheel=0.30.0=py35hd3883cf_1
 - xz=5.2.3=h55aa19d_2
+- yaml=0.1.7=had09818_2
 - zlib=1.2.11=ha838bed_2
 - zope=1.0=py35_0
 - zope.interface=4.4.3=py35h9cef842_0
@@ -47,5 +53,4 @@ dependencies:
   - python-telegram-bot==8.1.1
   - service-identity==17.0.0
   - werkzeug==0.12.2
-prefix: /home/naveen/.conda/envs/promote_it_env
 
