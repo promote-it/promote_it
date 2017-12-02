@@ -40,15 +40,3 @@ if __name__ == "__main__":
     config.initialize("../services/dev.yml")
     config.print()
     config.print_sections()
-
-
-#        #    def __init__(self):
-#        self.promote_it_share_bot_token = "326265151:AAH3iQP6__6FhDFx1KMVMMXQGz2hXP55I4c"
-#        self.channel_resolver_bot_tokens = [
-#            "122065802:AAE9psorrr79jTynQwFuOMbocNETs2m-MM8",
-#            "105656295:AAG9rg-XtG68Ath5x1034IhSesNgDQKpMyc",
-#        ]
-#        self.promote_it_bot_token = ""
-#        self.resolve_age = 10
-
-#config = PromoteItConfig()
