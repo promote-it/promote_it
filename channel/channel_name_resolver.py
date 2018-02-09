@@ -4,22 +4,20 @@ import logging
 
 from telegram import Bot
 
-from config.promote_it_config import config
-
-
 logger = logging.getLogger("c_n_r")
 
 
 class ChannelNameResolver(object):
-    def __init__(self):
+    def __init__(self, config):
+        self.config = config
         self.bots = []
 
 
     def initialize(self):
-        resolver_bot_tokens = config.get("name_resolver").get("bot_tokens")
+        resolver_bot_tokens = self.config.get("name_resolver").get("bot_tokens")
         for token in resolver_bot_tokens:
             bot = Bot(token)
-            print(bot.get_me())
+            logger.info(bot.get_me())
             self.bots.append(bot)
 
 

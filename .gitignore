@@ -51,9 +51,8 @@ fabric.properties
 .idea/
 __pycache__/
 
-
-#config
-config/dev.yml
-config/qa.yml
-config/prod.yml
+# config
+config/dev_promote_it.yml
+config/uat_promote_it.yml
+config/prod_promote_it.yml
 config/promote_it.yml

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import yaml
-
+import logging
 
 class PromoteItConfig(object):
 
@@ -9,6 +9,7 @@ class PromoteItConfig(object):
         self.config_file = None
         self.env_config_file = None
         self.config = {}
+        self.logger = logging.getLogger("config")
 
 
     def initialize(self, config_file, env_config_file):
@@ -18,12 +19,12 @@ class PromoteItConfig(object):
 
 
     def load_config_files(self):
-        print("Loading config file %s" % self.config_file)
+        self.logger.info("Loading config file %s" % self.config_file)
         config = yaml.load(open(self.config_file, 'r'))
         if (config is None):
             config = {}
 
-        print("Loading env config file %s" % self.env_config_file)
+        self.logger.info("Loading env config file %s" % self.env_config_file)
         env_config = yaml.load(open(self.env_config_file, 'r'))
         if (env_config is None):
             env_config = {}
@@ -36,17 +37,15 @@ class PromoteItConfig(object):
 
 
     def print(self):
-        print(self.config)
+        self.logger.info(self.config)
 
 
     def print_sections(self):
         for section in self.config:
-            print(section)
-
-config = PromoteItConfig()
+            self.logger.info(section)
 
 if __name__ == "__main__":
     config = PromoteItConfig()
-    config.initialize("promote_it.yml", "dev.yml")
+    config.initialize("promote_it.yml", "dev_promote_it.yml")
     config.print()
     config.print_sections()

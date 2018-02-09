@@ -1,15 +1,24 @@
 #!/usr/bin/env python
 
 import json
+import logging
 
 import sys
 from klein import Klein
 
 from admin.channel_admin_resolver import ChannelAdminResolver
-from config.promote_it_config import  config
+from config.promote_it_config import  PromoteItConfig
 
+
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger("admin_resolver")
+
+config = PromoteItConfig()
 app = Klein()
-resolver = ChannelAdminResolver()
+resolver = ChannelAdminResolver(config)
 
 
 @app.route('/resolve/<channel_name>', methods=['GET'])
@@ -37,7 +46,7 @@ if __name__ == "__main__":
         usage()
 
     env = sys.argv[1]
-    config.initialize("config/promote_it.yml", "config/" + env + ".yml")
+    config.initialize("config/promote_it.yml", "config/" + env + "_promote_it.yml")
 
     resolver.initialize()
 

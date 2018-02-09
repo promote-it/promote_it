@@ -2,8 +2,7 @@
 
 from enum import Enum
 
-from types.promote_it_object import PromoteItObject
-
+from .promote_it_object import PromoteItObject
 
 class Status(Enum):
     PENDING_APPROVAL = 1
@@ -21,12 +20,20 @@ class Status(Enum):
 
 
 class Channel(PromoteItObject):
-    def __init__(self, id, name, title, description, submission, status):
+    def __init__(self,
+                 id=None,
+                 name=None,
+                 title=None,
+                 description=None,
+                 submitted_by=None,
+                 submitted_on=None,
+                 status=Status.PENDING_APPROVAL):
         self.id = id
         self.name = name
         self.title = title
         self.description = description
-        self.submission = submission
+        self.submitted_by = submitted_by
+        self.submitted_on = submitted_on
         self.status = status
 
 
